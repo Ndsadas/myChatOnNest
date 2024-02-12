@@ -8,15 +8,7 @@ export class AppController {
 
   @Get('/hello')
   getHello(@JwtCookie() jwt): string {
-    console.log(jwt);
     return this.appService.getHello();
   }
 
-  @Get()
-  @Render('index')
-  root() {
-    return {
-      messages: [{ message: 'Hello', author: 'Vlad' }, { message: 'World' }],
-    };
-  }
 }

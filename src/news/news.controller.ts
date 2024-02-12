@@ -67,7 +67,6 @@ export class NewsController {
   async getAllView() {
     const news = await this.newsService.getAll();
     console.log(news)
-
     return { news, title: 'Список новостей!' };
   }
 
@@ -123,7 +122,6 @@ export class NewsController {
       news.cover = PATH_NEWS + cover.filename;
     }
 
-
     const createdNews = await this.newsService.create(news, userId);
 
     return createdNews;
@@ -148,7 +146,7 @@ export class NewsController {
     return newsEditable;
   }
 
-  @Delete('/api/:id')
+  @Delete('/api/delete/:id')
   async remove(@Param('id', ParseIntPipe) id: number): Promise<string> {
     const isRemoved = await this.newsService.remove(id);
     throw new HttpException(

@@ -38,7 +38,9 @@ export class NewsService {
     newsEntity.description = news.description;
     newsEntity.cover = news.cover;
     const _user = await this.usersService.findById(userId);
+    console.log('_user', _user)
     newsEntity.user = _user;
+    console.log('newsEntity', newsEntity)
     return this.newsRepository.save(newsEntity);
   }
 
@@ -50,7 +52,9 @@ export class NewsService {
   }
 
   getAll(): Promise<NewsEntity[]> {
-    return this.newsRepository.find({});
+    return this.newsRepository.find({
+      relations: ['user']
+    });
   }
 
   async edit(id: number, news: NewsEdit): Promise<NewsEntity | null> {
