@@ -18,7 +18,6 @@ import { UsersService } from './users.service';
 import { EditUserDto } from './dtos/edit-user-dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { AuthService } from '../auth/auth.service';
-import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('users')
 export class UsersController {

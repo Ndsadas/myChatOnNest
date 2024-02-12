@@ -1,20 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpException,
-  HttpStatus,
-  Param,
-  ParseIntPipe,
-  Post,
-  Put,
-  Render,
-  Req,
-  UploadedFile,
-  UseGuards,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put, Render, Req, UploadedFile, UseGuards, UseInterceptors, } from '@nestjs/common';
 import { NewsService } from './news.service';
 import { CommentsService } from './comments/comments.service';
 import { CreateNewsDto } from './dtos/create-news-dto';
@@ -25,8 +9,6 @@ import { HelperFileLoader } from '../utils/HelperFileLoader';
 import { MailService } from '../mail/mail.service';
 import { NewsEntity } from './news.entity';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { Roles } from '../auth/role/roles.decorator';
-import { Role } from '../auth/role/role.enum';
 import { ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 const PATH_NEWS = '/news-static/';
@@ -39,7 +21,7 @@ export class NewsController {
     private readonly newsService: NewsService,
     private readonly commentsService: CommentsService,
     private readonly mailService: MailService,
-  ) {}
+  ) { }
 
   @Get('/api/detail/:id')
   async get(@Param('id', ParseIntPipe) id: number): Promise<NewsEntity> {
@@ -66,7 +48,7 @@ export class NewsController {
   @Render('news-list')
   async getAllView() {
     const news = await this.newsService.getAll();
-    console.log(news)
+    
     return { news, title: 'Список новостей!' };
   }
 

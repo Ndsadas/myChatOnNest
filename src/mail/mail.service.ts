@@ -10,7 +10,7 @@ export class MailService {
     console.log('Отправляется письмо установки');
     return await this.mailerService
       .sendMail({
-        to: 'snezhkinv@yandex.ru',
+        to: '',
         subject: 'Наше первое письмо!',
         template: './test',
       })

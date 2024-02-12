@@ -9,4 +9,5 @@ export class MailController {
   async sendTestEmail() {
     return await this.mailService.sendTest();
   }
+
 }

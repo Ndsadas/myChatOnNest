@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, ValidateIf, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsString, ValidateIf } from 'class-validator';
 
 export class EditCommentDto {
   @IsString()

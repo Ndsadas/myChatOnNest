@@ -6,8 +6,7 @@ import { CommentsModule } from './comments/comments.module';
 import { MailModule } from '../mail/mail.module';
 import { NewsEntity } from './news.entity';
 import { UsersModule } from '../users/users.module';
-import { RolesGuard } from '../auth/role/roles.guard';
-import { AuthModule } from '../auth/auth.module';
+
 
 @Module({
   controllers: [NewsController],
